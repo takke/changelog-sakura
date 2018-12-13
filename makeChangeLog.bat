@@ -1,7 +1,7 @@
 @echo off
 
 rem ruby -e 'print Encoding.default_external'
-rem ruby -e 'print "„Éê„Ç∞‰øÆÊ≠£"'
+rem ruby -e 'print "ÉoÉOèCê≥"'
 rem 
 rem exit /b 0
 
@@ -12,6 +12,8 @@ call %~dp0env-set.bat
 @echo on
 rem set LC_ALL=ja_JP.UTF-8
 rem set LANG=ja_JP.UTF-8
+
+set RUBYOPT=-EUTF-8
 
 set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
