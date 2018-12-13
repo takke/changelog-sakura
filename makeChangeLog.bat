@@ -13,7 +13,7 @@ call %~dp0env-set.bat
 rem set LC_ALL=ja_JP.UTF-8
 rem set LANG=ja_JP.UTF-8
 
-set RUBYOPT=-EUTF-8
+set RUBYOPT=-EUTF-8:UTF-8
 
 set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
