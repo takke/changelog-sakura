@@ -4,6 +4,9 @@ setlocal
 
 call %~dp0env-set.bat
 
+set LC_ALL=ja_JP.UTF-8
+set LANG=ja_JP.UTF-8
+
 set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
 set OUTFILENAME=CHANGELOG.md
