@@ -8,6 +8,8 @@ set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
 set OUTFILENAME=CHANGELOG.md
 set EXCLUDELABELS=duplicate,question,invalid,wontfix,CI,management,refactoring
+set BUG_LABEL="バグ修正"
+set ENHANCEMENT_LABEL="機能追加"
 
 @echo.
 @echo INFO: APPVEYOR_REPO_NAME                   = %APPVEYOR_REPO_NAME%
@@ -43,6 +45,8 @@ github_changelog_generator                           ^
 	-p %PROJECTNAME%                                 ^
 	-o %OUTFILENAME%                                 ^
 	--exclude-labels %EXCLUDELABELS%                 ^
+    --bugs-label %BUG_LABEL%                          ^
+    --enhancement-label %ENHANCEMENT_LABEL%          ^
 	--cache-file %TEMP%\github-changelog-http-cache  ^
 	--cache-log  %TEMP%\github-changelog-logger.log
 endlocal
