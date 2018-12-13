@@ -20,10 +20,10 @@ set PROJECTNAME=sakura
 set OUTFILENAME=CHANGELOG.md
 set EXCLUDELABELS=duplicate,question,invalid,wontfix,CI,management,refactoring
 set BUG_LABEL="** バグ修正 **"
-set ENHANCEMENT_LABEL="** Enhancements **"
-set BREAKING_LABEL="** Specification Change **"
+set ENHANCEMENT_LABEL="** 機能追加 **"
+set BREAKING_LABEL="** 仕様変更 **"
 set BREAKING_LABELS="specification change"
-set PR_LABEL="** OtherChanges(PRs) **"
+set PR_LABEL="** その他変更 **"
 
 @echo.
 @echo INFO: APPVEYOR_REPO_NAME                   = %APPVEYOR_REPO_NAME%
@@ -54,7 +54,7 @@ if not defined CHANGELOG_GITHUB_TOKEN (
 	exit /b 1
 )
 
-REM chcp 65001
+chcp 65001
 
 github_changelog_generator                           ^
 	-u %ACCOUNTNAME%                                 ^
