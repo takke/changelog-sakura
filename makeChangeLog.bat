@@ -7,7 +7,6 @@ call %~dp0env-set.bat
 @echo on
 rem set LC_ALL=ja_JP.UTF-8
 rem set LANG=ja_JP.UTF-8
-chcp 65001
 
 set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
@@ -47,6 +46,8 @@ if not defined CHANGELOG_GITHUB_TOKEN (
 	endlocal
 	exit /b 1
 )
+
+chcp 65001
 
 github_changelog_generator                           ^
 	-u %ACCOUNTNAME%                                 ^
