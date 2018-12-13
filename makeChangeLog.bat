@@ -1,9 +1,9 @@
 @echo off
 
-ruby -e 'print Encoding.default_external'
-ruby -e 'print "ÉoÉOèCê≥"'
-
-exit /b 0
+rem ruby -e 'print Encoding.default_external'
+rem ruby -e 'print "„Éê„Ç∞‰øÆÊ≠£"'
+rem 
+rem exit /b 0
 
 setlocal
 
@@ -52,7 +52,7 @@ if not defined CHANGELOG_GITHUB_TOKEN (
 	exit /b 1
 )
 
-chcp 65001
+REM chcp 65001
 
 github_changelog_generator                           ^
 	-u %ACCOUNTNAME%                                 ^
