@@ -4,6 +4,8 @@ setlocal
 
 call %~dp0env-set.bat
 
+@echo on
+
 REM 日本語を扱えるように内部エンコーディングを UTF-8 にする
 set RUBYOPT=-EUTF-8:UTF-8
 
