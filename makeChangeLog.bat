@@ -1,18 +1,10 @@
 @echo off
 
-rem ruby -e 'print Encoding.default_external'
-rem ruby -e 'print "バグ修正"'
-rem 
-rem exit /b 0
-
 setlocal
 
 call %~dp0env-set.bat
 
-@echo on
-rem set LC_ALL=ja_JP.UTF-8
-rem set LANG=ja_JP.UTF-8
-
+REM 日本語を扱えるように内部エンコーディングを UTF-8 にする
 set RUBYOPT=-EUTF-8:UTF-8
 
 set ACCOUNTNAME=sakura-editor
@@ -54,20 +46,20 @@ if not defined CHANGELOG_GITHUB_TOKEN (
 	exit /b 1
 )
 
-chcp
-REM chcp 65001
-
-echo bugs-label=バグ修正 > .github_changelog_generator
+REM
+REM 日本語を含むパラメータを指定すると文字化けするのでファイル経由で渡す
+REM 
+echo bugs-label=%BUG_LABEL%                >  .github_changelog_generator
+echo enhancement-label=%ENHANCEMENT_LABEL% >> .github_changelog_generator
+echo breaking-label=%BREAKING_LABEL%       >> .github_changelog_generator
+echo pr-label=%PR_LABEL%                   >> .github_changelog_generator
 
 github_changelog_generator                           ^
 	-u %ACCOUNTNAME%                                 ^
 	-p %PROJECTNAME%                                 ^
 	-o %OUTFILENAME%                                 ^
 	--exclude-labels %EXCLUDELABELS%                 ^
-    --enhancement-label %ENHANCEMENT_LABEL%          ^
-    --breaking-label %BREAKING_LABEL%                ^
     --breaking-labels %BREAKING_LABELS%              ^
-    --pr-label %PR_LABEL%                            ^
     --require %~dp0set_locale                        ^
 	--cache-file %TEMP%\github-changelog-http-cache  ^
 	--cache-log  %TEMP%\github-changelog-logger.log
