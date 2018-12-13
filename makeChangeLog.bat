@@ -5,8 +5,8 @@ setlocal
 call %~dp0env-set.bat
 
 @echo on
-REM set LC_ALL=ja_JP.UTF-8
-REM set LANG=ja_JP.UTF-8
+set LC_ALL=ja_JP.UTF-8
+set LANG=ja_JP.UTF-8
 
 set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
