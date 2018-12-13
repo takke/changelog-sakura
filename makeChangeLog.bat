@@ -54,7 +54,8 @@ if not defined CHANGELOG_GITHUB_TOKEN (
 	exit /b 1
 )
 
-chcp 65001
+chcp
+REM chcp 65001
 
 github_changelog_generator                           ^
 	-u %ACCOUNTNAME%                                 ^
