@@ -1,5 +1,10 @@
 @echo off
 
+ruby -e 'print Encoding.default_external'
+ruby -e 'print "ƒoƒOC³"'
+
+exit /b 0
+
 setlocal
 
 call %~dp0env-set.bat
