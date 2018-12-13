@@ -4,8 +4,9 @@ setlocal
 
 call %~dp0env-set.bat
 
-set LC_ALL=ja_JP.UTF-8
-set LANG=ja_JP.UTF-8
+@echo on
+REM set LC_ALL=ja_JP.UTF-8
+REM set LANG=ja_JP.UTF-8
 
 set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
@@ -15,6 +16,7 @@ set BUG_LABEL="**バグ修正**"
 set ENHANCEMENT_LABEL="**機能追加**"
 set BREAKING_LABEL="**仕様変更**"
 set BREAKING_LABELS="specification change"
+set PR_LABEL="**その他変更**"
 
 @echo.
 @echo INFO: APPVEYOR_REPO_NAME                   = %APPVEYOR_REPO_NAME%
@@ -45,8 +47,6 @@ if not defined CHANGELOG_GITHUB_TOKEN (
 	exit /b 1
 )
 
-echo BUG_LABEL=%BUG_LABEL%
-
 github_changelog_generator                           ^
 	-u %ACCOUNTNAME%                                 ^
 	-p %PROJECTNAME%                                 ^
@@ -56,6 +56,8 @@ github_changelog_generator                           ^
     --enhancement-label %ENHANCEMENT_LABEL%          ^
     --breaking-label %BREAKING_LABEL%                ^
     --breaking-labels %BREAKING_LABELS%              ^
+    --pr-label %PR_LABEL%                            ^
 	--cache-file %TEMP%\github-changelog-http-cache  ^
 	--cache-log  %TEMP%\github-changelog-logger.log
+
 endlocal
