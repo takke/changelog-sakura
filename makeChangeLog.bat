@@ -1,7 +1,7 @@
 @echo off
 
 rem ruby -e 'print Encoding.default_external'
-rem ruby -e 'print "�o�O�C��"'
+rem ruby -e 'print "バグ修正"'
 rem 
 rem exit /b 0
 
@@ -19,7 +19,7 @@ set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
 set OUTFILENAME=CHANGELOG.md
 set EXCLUDELABELS=duplicate,question,invalid,wontfix,CI,management,refactoring
-set BUG_LABEL="** バグ修正 **"
+set BUG_LABEL="** 繝舌げ菫ｮ豁｣ **"
 set ENHANCEMENT_LABEL="** Enhancements **"
 set BREAKING_LABEL="** Specification Change **"
 set BREAKING_LABELS="specification change"
