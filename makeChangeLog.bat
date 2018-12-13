@@ -59,6 +59,7 @@ github_changelog_generator                           ^
     --breaking-label %BREAKING_LABEL%                ^
     --breaking-labels %BREAKING_LABELS%              ^
     --pr-label %PR_LABEL%                            ^
+    --require %~dp0set_locale                        ^
 	--cache-file %TEMP%\github-changelog-http-cache  ^
 	--cache-log  %TEMP%\github-changelog-logger.log
 
