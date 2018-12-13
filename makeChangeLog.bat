@@ -12,11 +12,11 @@ set ACCOUNTNAME=sakura-editor
 set PROJECTNAME=sakura
 set OUTFILENAME=CHANGELOG.md
 set EXCLUDELABELS=duplicate,question,invalid,wontfix,CI,management,refactoring
-set BUG_LABEL="**バグ修正**"
-set ENHANCEMENT_LABEL="**機能追加**"
-set BREAKING_LABEL="**仕様変更**"
+set BUG_LABEL="** Bug Fix **"
+set ENHANCEMENT_LABEL="** Enhancements **"
+set BREAKING_LABEL="** Specification Change **"
 set BREAKING_LABELS="specification change"
-set PR_LABEL="**その他変更**"
+set PR_LABEL="** OtherChanges(PRs) **"
 
 @echo.
 @echo INFO: APPVEYOR_REPO_NAME                   = %APPVEYOR_REPO_NAME%
