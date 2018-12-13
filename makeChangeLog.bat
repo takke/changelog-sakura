@@ -57,12 +57,13 @@ if not defined CHANGELOG_GITHUB_TOKEN (
 chcp
 REM chcp 65001
 
+echo "bugs-label=バグ修正" > .github_changelog_generator
+
 github_changelog_generator                           ^
 	-u %ACCOUNTNAME%                                 ^
 	-p %PROJECTNAME%                                 ^
 	-o %OUTFILENAME%                                 ^
 	--exclude-labels %EXCLUDELABELS%                 ^
-    --bugs-label %BUG_LABEL%                         ^
     --enhancement-label %ENHANCEMENT_LABEL%          ^
     --breaking-label %BREAKING_LABEL%                ^
     --breaking-labels %BREAKING_LABELS%              ^
