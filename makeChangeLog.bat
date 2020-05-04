@@ -7,8 +7,8 @@ call %~dp0env-set.bat
 REM 日本語を扱えるように内部エンコーディングを UTF-8 にする
 set RUBYOPT=-EUTF-8:UTF-8
 
-set ACCOUNTNAME=sakura-editor
-set PROJECTNAME=sakura
+set ACCOUNTNAME=takke
+set PROJECTNAME=changelog_sample1
 set OUTFILENAME=CHANGELOG.md
 set OUTFILENAME_WITHOUT_ISSUES=CHANGELOG_without_issues.md
 set EXCLUDELABELS=duplicate,question,invalid,wontfix,CI,management,refactoring,no-changelog
