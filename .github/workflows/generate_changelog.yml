@@ -11,16 +11,27 @@ jobs:
     name: Generate CHANGELOG.md
     runs-on: windows-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+
+    # %TEMP% に直接アクセスできないので TempPath を設定する
+    - name: Set TEMP env
+      if: always()
+      shell: cmd
+      run: |
+         echo %TEMP%
+         echo ::set-env name=TempPath::%TEMP%
+
+    - uses: actions/cache@v1
+      with:
+        path: ${{ env.TempPath }}\github-changelog-http-cache
+        key: ${{ runner.os }}-github-changelog-http-cache
 
     # Runs a single command using the runners shell
     - name: Install
       run: installChangeLog.bat
       shell: cmd
-      
+
     - name: Make
       run: makeChangeLog.bat
       shell: cmd
@@ -36,13 +47,6 @@ jobs:
 
     # ログのアップロード
     # 失敗時も行うため always() を指定する
-    # %TEMP% に直接アクセスできないので TempPath を設定する
-    - name: set env TEMP
-      if: always()
-      shell: cmd
-      run: |
-         echo %TEMP%
-         echo ::set-env name=TempPath::%TEMP%
     - name: Upload log
       uses: actions/upload-artifact@v2
       if: always()
