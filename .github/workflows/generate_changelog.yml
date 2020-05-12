@@ -25,7 +25,7 @@ jobs:
       run: makeChangeLog.bat
       shell: cmd
       env:
-        CHANGELOG_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CHANGELOG_GITHUB_TOKEN: ${{ secrets.CHANGELOG_GITHUB_TOKEN }}
 
     ## see https://github.com/actions/upload-artifact
     - name: Upload
