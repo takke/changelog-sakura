@@ -34,16 +34,18 @@ jobs:
         name: CHANGELOG
         path: 'CHANGELOG*.md'
 
-    # set system TEMP value to env TempPath
+    # ログのアップロード
+    # 失敗時も行うため always() を指定する
+    # %TEMP% に直接アクセスできないので TempPath を設定する
     - name: set env TEMP
-      if: failure()
+      if: always()
       shell: cmd
       run: |
          echo %TEMP%
          echo ::set-env name=TempPath::%TEMP%
     - name: Upload log
       uses: actions/upload-artifact@v2
-      if: failure()
+      if: always()
       with:
         name: log
         path: ${{ env.TempPath }}\github-changelog-logger.log
