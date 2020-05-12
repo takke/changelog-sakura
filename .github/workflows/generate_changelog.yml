@@ -36,6 +36,7 @@ jobs:
 
     # set system TEMP value to env TempPath
     - name: set env TEMP
+      if: failure()
       shell: cmd
       run: |
          echo %TEMP%
