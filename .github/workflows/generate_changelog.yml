@@ -33,9 +33,16 @@ jobs:
       with:
         name: CHANGELOG
         path: 'CHANGELOG*.md'
+
+    # set system TEMP value to env TempPath
+    - name: set env TEMP
+      shell: cmd
+      run: |
+         echo %TEMP%
+         echo ::set-env name=TempPath::%TEMP%
     - name: Upload log
       uses: actions/upload-artifact@v2
       if: failure()
       with:
         name: log
-        path: ${{ env.TEMP }}\github-changelog-logger.log
+        path: ${{ env.TempPath }}\github-changelog-logger.log
